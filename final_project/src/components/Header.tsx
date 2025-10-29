@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function Header() {
   const { isAuthenticated, user, logout } = useAuth();
-  const location = useLocation();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -13,11 +12,6 @@ export default function Header() {
     navigate("/");
     setIsMobileMenuOpen(false);
   };
-
-  const navigation = [
-    { name: "Dashboard", href: "/dashboard", current: location.pathname === "/dashboard" },
-    { name: "Users", href: "/users", current: location.pathname.startsWith("/users") },
-  ];
 
   if (!isAuthenticated) return null;
 
@@ -64,20 +58,6 @@ export default function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden border-t border-gray-200 py-4">
             <div className="space-y-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    item.current
-                      ? "text-blue-600 bg-blue-50"
-                      : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
               <div className="px-3 py-2 text-sm text-gray-500">
                 Welcome, <span className="font-semibold">{user?.username || "User"}</span>
               </div>

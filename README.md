@@ -2,7 +2,7 @@
 # 🌟 Dashboard
 
 A **React + TypeScript** dashboard app built with **Vite**, **Tailwind CSS**, and **React Router**.
-This project includes authentication, user management, notes with drag & drop, analytics, and a real-time weather widget.
+This project includes authentication, user management, notes, analytics, and a real-time weather widget.
 
 ---
 
@@ -116,23 +116,6 @@ Output is in the `/dist` folder.
 ---
 
 ## 🧩 Folder Structure
-
-```
-src/
- ├── api/                # API requests (axios)
- ├── context/            # Auth context
- ├── features/           # Dashboard features
- │    ├── NotesManager.tsx
- │    ├── UserManager.tsx
- │    ├── Analytics.tsx
- │    ├── WeatherWidget.tsx
- │    └── ...
- ├── hooks/              # Custom hooks (e.g. useLocalStorage)
- ├── pages/              # Login, Dashboard
- ├── router/             # React Router setup
- ├── types/              # TypeScript interfaces
- └── App.tsx, main.tsx
-```
 
 ---
 
